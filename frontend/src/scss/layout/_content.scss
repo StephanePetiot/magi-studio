@@ -1,0 +1,14 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the main content layout of the site/application.
+// -----------------------------------------------------------------------------
+
+@import "../abstracts/variables";
+
+.landing-section {
+  min-height: 100vh;
+  padding-top: $header-height + $landing-section-padding;
+}
+
+#contact {
+  min-height: 100vh - $landing-section-padding - $footer-height;
+}

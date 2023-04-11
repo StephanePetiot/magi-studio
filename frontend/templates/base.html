@@ -1,0 +1,137 @@
+{% load static %}
+
+{% load render_bundle from webpack_loader %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = 'utf-8'>
+        <meta name = 'viewport' content = "width = device-width, initial-scale = 1">
+
+        <title>
+            {% if request.path != '/' %}
+                {% block title %}{% endblock title %}&nbsp;-&nbsp;
+            {% endif %}           
+            Magi Studio
+        </title>
+
+        {% comment %} <link rel = 'icon' type = "image/x-icon" href = "data:image/png;base64,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OTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iCiAgICB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIgogICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICAgeG1sbnM6R0lNUD0iaHR0cDovL3d3dy5naW1wLm9yZy94bXAvIgogICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iCiAgICB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iCiAgIHhtcE1NOkRvY3VtZW50SUQ9ImdpbXA6ZG9jaWQ6Z2ltcDo2YmMxYWMxOC1iNzk0LTQzM2QtOTA2Ni04Y2I1MTc4YjdiY2YiCiAgIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6YWM2NzYwNGItZWE1Ny00NWViLWFhYmEtZjM1NmU1ODMzOTYyIgogICB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YTE4NDA5MTUtYTJkMi00NGZjLTg1ZDUtOTBjN2MzMjYyZmFkIgogICBkYzpGb3JtYXQ9ImltYWdlL3BuZyIKICAgR0lNUDpBUEk9IjIuMCIKICAgR0lNUDpQbGF0Zm9ybT0iTGludXgiCiAgIEdJTVA6VGltZVN0YW1wPSIxNjY0ODY5ODE4NDY2MTgxIgogICBHSU1QOlZlcnNpb249IjIuMTAuMzAiCiAgIHRpZmY6T3JpZW50YXRpb249IjEiCiAgIHhtcDpDcmVhdG9yVG9vbD0iR0lNUCAyLjEwIj4KICAgPHhtcE1NOkhpc3Rvcnk+CiAgICA8cmRmOlNlcT4KICAgICA8cmRmOmxpCiAgICAgIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiCiAgICAgIHN0RXZ0OmNoYW5nZWQ9Ii8iCiAgICAgIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6NmMyZTQ0ODEtZDVkZS00MzMyLTljMjItMDA4NTFkNDhlMzgyIgogICAgICBzdEV2dDpzb2Z0d2FyZUFnZW50PSJHaW1wIDIuMTAgKExpbnV4KSIKICAgICAgc3RFdnQ6d2hlbj0iMjAyMi0xMC0wNFQwOTo1MDoxOCswMjowMCIvPgogICAgPC9yZGY6U2VxPgogICA8L3htcE1NOkhpc3Rvcnk+CiAgPC9yZGY6RGVzY3JpcHRpb24+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9InciPz6TabMOAAAADFBMVEUAAABHcEwTExMAVpErpuvTAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAADdYAAA3WAZBveZwAAAAHdElNRQfmCgQHMhLSne51AAAAjklEQVQY012QUQqDIQyDAz1AL/RDr17YAXaVwl6FLFH3MqH6VWtsBIBJ7FGTy2sQYAtyTqC8vU4ElYVP+G5kG14DaxR7XBtkLzwBknjwFPlRjiFXuELQ4TvDhT8oWlSQ1QeQ60JQUFKSclvZj18IDm77o1K0QZKxwX22bdlK/uzkNam5Y1uWHtf5DvUOfAGAFF4thzYo4QAAAABJRU5ErkJggg=="> {% endcomment %}
+
+        {% render_bundle 'base' 'css' %}
+        {% block specific_styles %}
+        {% endblock specific_styles %}
+    </head>
+    <body>
+        <div>
+            <!-- HEADER SECTION -->
+            <div id = "header">
+                <nav class = "navbar bg-white shadow navbar-expand-lg fixed-top text-lg-center opacity-0" id = "navbar">
+                    <div class = "container-fluid">
+                        <div class = "d-flex justify-content-center align-items-center d-lg-none flex-fill">
+                            <a class = "navbar-brand fs-1" href = "/#">
+                                <span class = "icon-logo" data-bs-toggle = "collapse" data-bs-target = "#navbar-nav"></span>
+                            </a>
+                            <button class = "navbar-toggler float-end" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navbar-nav" aria-controls = "navbar-nav" aria-expanded = "false" aria-label = "Toggle navigation">
+                                <span class = "navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                        <div class = "collapse navbar-collapse" id = "navbar-nav">
+                            <div class = "navbar-nav justify-content-center flex-fill">
+                                <ul class = "d-lg-flex justify-content-between align-items-center m-0 p-0" style = "width: 45%;">
+                                    <li class = "nav-item" style = "width: 33%;">
+                                        <h3 class = "m-0">
+                                            <a class = "nav-link" href = "/#studio">
+                                                <span class = "d-lg-none d-inline-block" data-bs-toggle = "collapse" data-bs-target = "#navbar-nav">Studio</span>
+                                                <span class = "d-none d-lg-inline-block">Studio</span>
+                                            </a>
+                                        </h3>
+                                    </li>
+                                    <li class = "nav-item" style = "width: 33%;">
+                                        <h3 class = "m-0">
+                                            <a class = "nav-link" href = "/#projects">
+                                                <span class = "d-lg-none d-inline-block" data-bs-toggle = "collapse" data-bs-target = "#navbar-nav">Projets</span>
+                                                <span class = "d-none d-lg-inline-block">Projets</span>
+                                            </a>
+                                        </h3>
+                                    </li>
+                                    <li class = "nav-item" style = "width: 33%;">
+                                        <h3 class = "m-0">
+                                            <a class = "nav-link" href = "/#team">
+                                                <span class = "d-lg-none d-inline-block" data-bs-toggle = "collapse" data-bs-target = "#navbar-nav">Equipe</span>
+                                                <span class = "d-none d-lg-inline-block">Equipe</span>
+                                            </a>
+                                        </h3>
+                                    </li>
+                                </ul>
+                                <ul class = "m-0 p-0" style = "width: 10%;">
+                                    <li class = "nav-item w-100">
+                                        <a class = "navbar-brand nav-link d-none d-lg-flex justify-content-center align-items-center m-0 p-0" href = "/#">
+                                            <span class = "icon-logo fs-1"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class = "d-lg-flex justify-content-between align-items-center m-0 p-0" style = "width: 45%;">
+                                    <li class = "nav-item" style = "width: 33%;">
+                                        <h3 class = "m-0">
+                                            <a class = "nav-link" href = "/#partners">
+                                                <span class = "d-lg-none d-inline-block" data-bs-toggle = "collapse" data-bs-target = "#navbar-nav">Partenaires</span>
+                                                <span class = "d-none d-lg-inline-block">Partenaires</span>
+                                            </a>
+                                        </h3>
+                                    </li>
+                                    <li class = "nav-item" style = "width: 33%;">
+                                        <h3 class = "m-0">
+                                            <a class = "nav-link" href = "/#behind-the-scenes">
+                                                <span class = "d-lg-none d-inline-block" data-bs-toggle = "collapse" data-bs-target = "#navbar-nav">Coulisses</span>
+                                                <span class = "d-none d-lg-inline-block">Coulisses</span>
+                                            </a>
+                                        </h3>
+                                    </li>
+                                    <li class = "nav-item" style = "width: 33%;">
+                                        <h3 class = "m-0">
+                                            <a class = "nav-link" href = "/#contact">
+                                                <span class = "d-lg-none d-inline-block" data-bs-toggle = "collapse" data-bs-target = "#navbar-nav">Contact</span>
+                                                <span class = "d-none d-lg-inline-block">Contact</span>
+                                            </a>
+                                        </h3>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                </nav>
+            </div>
+            <!-- CONTENT OF THE PAGE -->
+            <div id = "content">
+                {% block content %}
+                {% endblock content %}
+            </div>
+            <!-- FOOTER SECTION -->
+            <div id = "footer" class = "bg-dark">
+                <div class = "container">
+                    <div class = "d-flex justify-content-evenly align-items-center text-light text-center fs-4 flex-wrap">
+                        <div class = "">
+                            <a class = "link-light" href = "/#">
+                                <span class = "icon-logo fs-1"></span>
+                            </a>
+                        </div>
+                        <span class = "text-muted">&#169; 2023 Magi Studio</span>
+                        <a class = "link-light fw-bold mx-3" href = {% url 'core:legal' %}>Mentions légales</a>
+                        <a class = "link-light mx-3" href = "https://linkedin.com" target = "blank">
+                            <span class = "icon-linkedin"></span>
+                        </a>
+                        <button class = "btn btn-outline-light border-0">
+                            <img src = {% static "images/light/uk.svg" %} height = "30rem"/>
+                        </button>
+                        <button class = "btn btn-outline-light border-0">
+                            <span class = "icon-dark"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {% render_bundle 'base' 'js' %}
+        {% block specific_scripts %}
+        {% endblock specific_scripts %}
+    </body>
+</html>

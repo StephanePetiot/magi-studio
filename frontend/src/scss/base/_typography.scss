@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+// This file contains global typographic rules
+// -----------------------------------------------------------------------------
+
+@import "../abstracts/variables";
+
+body {
+  font-family: "Phudu Regular";
+}
+
+#footer {
+  font-family: "Phudu Light";
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.list-styled li {
+  list-style: square;
+}

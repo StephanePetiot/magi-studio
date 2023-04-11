@@ -1,0 +1,44 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+
+/* Webfont-based icons (generated with icon-font-loader with SVG icons in images/icons folder)
+   ========================================================================== */
+
+.icon-logo::before { icon-font: url("../assets/icons/logo.svg"); }
+.icon-light::before { icon-font: url("../assets/icons/light.svg"); }
+.icon-dark::before { icon-font: url("../assets/icons/dark.svg"); }
+.icon-linkedin::before { icon-font: url("../assets/icons/linkedin.svg"); }
+
+/* Lato global fonts for the whole website
+   ========================================================================== */
+
+/**
+ * Light
+ */
+@font-face {
+  font-family: "Phudu Light";
+  src: url("../assets/fonts/Phudu/Phudu-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/**
+ * Regular
+ */
+@font-face {
+  font-family: "Phudu Regular";
+  src: url("../assets/fonts/Phudu/Phudu-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/**
+ * Bold
+ */
+@font-face {
+  font-family: "Phudu Bold";
+  src: url("../assets/fonts/Phudu/Phudu-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

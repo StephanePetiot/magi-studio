@@ -1,0 +1,59 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/* Navbar elements
+   ========================================================================== */
+nav,
+nav #title {
+  transition: all 0.2s ease;
+}
+
+.slide-in-link {
+  display: inline-block;
+}
+
+.slide-in-text {
+  display: inline-block;
+  width: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transition: 0.2s;
+  transform: scale(0.1);
+}
+
+.slide-in-text-left {
+  transform: translateX(20px);
+  direction: rtl;
+}
+
+.slide-in-text-right {
+  transform: translateX(-20px);
+  direction: ltr;
+}
+
+.slide-in-link:hover .slide-in-text-right,
+.slide-in-link:hover .slide-in-text-left {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.slide-in-link:hover .slide-in-text-top {
+  opacity: 1;
+  transform: translate(-50px, -20px) scale(1);
+}
+
+.slide-in-link:hover .slide-in-text-bottom {
+  opacity: 1;
+  transform: translate(-50px, 20px) scale(1);
+}
+
+.slide-in-link:hover .slide-in-text-top-right {
+  opacity: 1;
+  transform: translate(-30px, -20px) scale(1);
+}
+
+.slide-in-link:hover .slide-in-text-bottom-right {
+  opacity: 1;
+  transform: translate(-30px, 20px) scale(1);
+}

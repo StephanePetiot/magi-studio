@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load render_bundle from webpack_loader %}
+
+{% block specific_styles %}
+    {% render_bundle 'index' 'css' %}
+{% endblock specific_styles %}
+
+{% block specific_scripts %}
+    {% render_bundle 'index' 'js' %}
+{% endblock specific_scripts %}
+
+{% block content %}
+    <div class = "min-vh-100">
+        <img class = "position-absolute w-100 h-100" src = {{ cover_image_url }} />
+        <div class = "bg-dark opacity-50 position-absolute w-100 h-100"></div>
+        <div class = "landing-section position-absolute w-100 h-100" id = "landing">
+            <div class = "container d-flex flex-column justify-content-evenly h-100 text-center text-white">
+                <div class = "landing-title py-5 fade-in">
+                    <h1 class = "display-1">
+                        <span class = "icon-logo"></span>
+                        Magi Studio
+                    </hi>
+                    <blockquote class = "blockquote">
+                        <p>De la magie dans toutes vos créations !</p>
+                    </blockquote>
+                </div>
+                <div class = "landing-sections fade-in d-flex flex-wrap justify-content-center my-5">
+                    <div class = "m-3">
+                        <h2>Traduction</h2>
+                        <p>Description de la section Traduction</p>
+                    </div>
+                    <div class = "m-3">
+                        <h2>Lettrage</h2>
+                        <p>Description de la section Lettrage</p>
+                    </div>
+                    <div class = "m-3">
+                        <h2>Correction</h2>
+                        <p>Description de la section Correction</p>
+                    </div>
+                    <div class = "m-3">
+                        <h2>Graphisme</h2>
+                        <p>Description de la section Graphisme</p>
+                    </div>
+                    <div class = "m-3">
+                        <h2>Relecture</h2>
+                        <p>Description de la section Relecture</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-bs-spy = "scroll" data-bs-target = "#navbar" data-bs-root-margin = "0px 0px -40%" tabindex = "0">
+        <div class = "landing-section" id = "studio">
+            <div class = "container fade-in">
+                <h2>Le studio</h2>
+                <div class = "row">
+                    <div class = "col-12 col-lg-6">
+                        <img src = {{ studio_image_url }} />
+                    </div>
+                    <div class = "col-12 col-lg-6">
+                        <p>Magi studio est un studio. Voilà</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "landing-section bg-light" id = "projects">
+            <div class = "container fade-in">
+                <h2>Les projets</h2>
+                <div class = "projects-app"></div>
+            </div>
+        </div>
+        <div class = "landing-section" id = "team">
+            <div class = "container fade-in">
+                <h2>L'équipe</h2>
+                <div class = "team-app"></div>
+            </div>
+        </div>
+        <div class = "landing-section bg-light" id = "partners">
+            <div class = "container fade-in">
+                <h2>Ils nous font confiance</h2>
+                <div class = "d-flex justify-content-around align-items-center flex-wrap">
+                    {% for sponsor_pic in sponsor_pics %}
+                        <img src = {{ sponsor_pic }} />
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class = "landing-section" id = "behind-the-scenes">
+            <div class = "container fade-in">
+                <h2>Les coulisses</h2>
+            </div>
+        </div>
+        <div class = "landing-section bg-light" id = "contact">
+            <div class = "container fade-in">
+                <h2>Contact</h2>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
