@@ -7,8 +7,8 @@ python << END
 import sys
 import psycopg2
 try:
-    print("Trying to connect to database '$DB_NAME' on host 'database'..")
-    conn = psycopg2.connect(dbname='$DB_NAME', user='$DB_USER', password='$DB_PASSWORD', host="database")
+    print("Trying to connect to database '$DB_NAME' on host '$POSTGRES_HOST'..")
+    conn = psycopg2.connect(dbname='$DB_NAME', user='$DB_USER', password='$DB_PASSWORD', host="$POSTGRES_HOST")
 except psycopg2.OperationalError as e:
     print(e)
     sys.exit(-1)

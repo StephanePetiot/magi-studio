@@ -20,13 +20,13 @@
   "base/reboot",
   "base/typography";
 
-// 4. Components
-@import
-  "components/textarea";
-
 // 5. Layout
 @import
   "layout/content",
   "layout/footer",
   "layout/header",
   "layout/offcanvas";
+
+// 6. Pages
+@import
+  "pages/index";

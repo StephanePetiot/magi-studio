@@ -1,9 +1,11 @@
+import "../i18n";
+
 import '~/scss/pages/index.scss';
 
-import '~/assets/images/otter-large.png';
-import '~/assets/images/otter-icon.png';
-import '~/assets/images/otter-portrait.png';
-import '~/assets/images/Alpaca-portrait.png';
+// import '~/assets/images/otter-large.png';
+// import '~/assets/images/otter-icon.png';
+// import '~/assets/images/otter-portrait.png';
+// import '~/assets/images/Alpaca-portrait.png';
 
 
 window.onload = () => {

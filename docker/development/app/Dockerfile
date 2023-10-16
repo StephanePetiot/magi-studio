@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED 1
 # Create a user to avoid running containers as root in production
 # Need to specify UID/GID to avoid permission issues on mounted volumes
 RUN addgroup --system --gid 1000 app  \
-    && adduser --system --ingroup app --uid 1000 app
+    && adduser --system --ingroup app --uid 1000 --home=/home/app app
 # Install os-level dependencies (as root)
 RUN apt-get update && apt-get install -y -q --no-install-recommends \
   # dependencies for building Python packages
@@ -18,6 +18,10 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
   libpq-dev \
   # Dependency needed for celery autoreload management command
   procps \
+  # For I18N and L10N
+  gettext \
+  # For git hooks
+  git \
   && pip install --no-cache-dir psycopg2 \
   # cleaning up unused files to reduce the image size
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
@@ -35,11 +39,14 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 # Copy the scripts that starts the development application server (runserver)
 COPY --chown=app:app docker/development/app/start-dev-server.sh /usr/local/bin/start-dev-server.sh
 RUN chmod +x /usr/local/bin/start-dev-server.sh
+# Copy celery worker script
+COPY --chown=app:app docker/development/app/start-celery-worker.sh /usr/local/bin/start-celery-worker.sh
+RUN chmod +x /usr/local/bin/start-celery-worker.sh
 
 RUN chown -R app:app /code/
 
 ARG media_root
-RUN chown -R app:app $media_root
+RUN mkdir -p $media_root && chown -R app:app $media_root
 
 USER app
 # This script will run before every command executed in the container

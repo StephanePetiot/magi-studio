@@ -1,12 +1,12 @@
 version: '3.8'
 
 volumes:
-  database-data:
-  media:
+  magi-studio-database-data:
+  magi-studio-media:
 
 services:
   # Postgresql Database
-  database:
+  magi-studio-database:
     image: postgres:15-alpine
     restart: unless-stopped
     container_name: postgresql
@@ -17,7 +17,7 @@ services:
       - 5432:5432
     volumes:
       - ./database/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
-      - database-data:/var/lib/postgresql/data
+      - magi-studio-database-data:/var/lib/postgresql/data
 
   # Frontend app (static files)
   frontend:
@@ -47,14 +47,45 @@ services:
     env_file: &env
       - .env
     depends_on:
-      - database
+      - magi-studio-database
       - frontend
     volumes: &code
-      - ../../manage.py:/code/manage.py
-      - ../../app:/code/app
-      - ../../config:/code/config
-      - ../../frontend:/code/frontend
-      - media:${MEDIA_ROOT}
+      - ../../:/code
+      - magi-studio-media:${MEDIA_ROOT}
+      - ../../.git:/code/.git
     ports:
       - 8000:8000
       - 8888:8888
+
+  # Redis Broker
+  broker:
+    image: redis:7-alpine
+    restart: unless-stopped
+    container_name: redis
+    ports:
+      - 6379:6379
+    depends_on:
+      - magi-studio-database
+
+  # Celery Worker
+  worker:
+    image: celery-worker
+    restart: unless-stopped
+    container_name: celery-worker
+    build: *app
+    command: start-celery-worker.sh
+    env_file: *env
+    volumes: *code
+    depends_on:
+      - magi-studio-database
+      - broker
+      - app
+
+  git-hooks:
+    container_name: git-hooks
+    build:
+      context: ../../
+      dockerfile: ./docker/development/git-hooks/Dockerfile
+    volumes:
+      - ../../.git:/tmp/.git
+      - ../../hooks:/tmp/hooks

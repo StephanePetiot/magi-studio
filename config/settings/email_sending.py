@@ -1,10 +1,6 @@
 import os
 from config.env import env_to_enum
-from enum import Enum
-
-class EmailSendingStrategy(Enum):
-    LOCAL = "local"
-    PRODUCTION = "production" # Example of email sending service, can be other thing such as "mailtrap"
+from app.emails.enums import EmailSendingStrategy
 
 EMAIL_SENDING_STRATEGY = env_to_enum(EmailSendingStrategy, os.environ.get("EMAIL_SENDING_STRATEGY", "local"))
 
@@ -16,11 +12,11 @@ if EMAIL_SENDING_STRATEGY == EmailSendingStrategy.LOCAL:
 
 if EMAIL_SENDING_STRATEGY == EmailSendingStrategy.PRODUCTION:
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-    EMAIL_HOST = os.environ["EMAIL_HOST"]
-    EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
-    EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
-    EMAIL_PORT = os.environ["EMAIL_PORT"]
+    EMAIL_HOST = os.environ.get("EMAIL_HOST", "")
+    EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
+    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
+    EMAIL_PORT = os.environ.get("EMAIL_PORT", "")
     # EMAIL_USE_TLS = True
 
-DEFAULT_FROM_EMAIL = os.environ['DEFAULT_FROM_EMAIL']
-SERVER_EMAIL = os.environ['SERVER_EMAIL']
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "admin@magi-studio.fr")
+SERVER_EMAIL = os.environ.get("SERVER_EMAIL", "admin@magi-studio.fr")

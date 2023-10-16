@@ -1,13 +1,14 @@
 {
-  "name": "magi-studio",
+  "name": "Magi Studio",
   "version": "1.0.0",
   "description": "Magi Studio Frontend App",
   "scripts": {
     "lint": "npm run lint:styles; npm run lint:scripts",
     "lint:styles": "stylelint src",
     "lint:scripts": "eslint src",
-    "build": "webpack --config webpack/webpack.config.prod.js",
-    "start": "webpack serve --config webpack/webpack.config.dev.js"
+    "development": "webpack serve --config webpack/webpack.config.development.js",
+    "staging": "webpack --config webpack/webpack.config.staging.js",
+    "production": "webpack --config webpack/webpack.config.production.js"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
@@ -27,6 +28,7 @@
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "icon-font-loader": "^4.0.0",
+    "js-cookie": "^3.0.5",
     "mini-css-extract-plugin": "^2.7.0",
     "postcss-loader": "^7.0.1",
     "postcss-preset-env": "^7.8.3",
@@ -43,15 +45,18 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.2.1",
     "@popperjs/core": "^2.11.6",
     "ajv": "^8.11.0",
     "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.11.1",
     "core-js": "^3.6.5",
     "jquery": "^3.6.1",
-    "js-cookie": "^3.0.1",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
-    "swiper": "^8.4.4"
+    "i18next": "^23.5.1",
+    "i18next-http-backend": "^2.2.2",
+    "react-i18next": "^13.2.2",
+    "swiper": "^10.0.3"
   }
 }

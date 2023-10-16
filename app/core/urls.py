@@ -1,9 +1,9 @@
-from django.urls import path, include
+from django.urls import path
 
-from . import views
+from .views import IndexView, LegalView
 
-app_name = 'core'
+app_name = "core"
 urlpatterns = [
-    path("", views.index, name = 'index'),
-    path("legal", views.legal, name = 'legal'),
+    path("", IndexView.as_view(), name = 'index'),
+    path("legal", LegalView.as_view(), name = 'legal'),
 ]

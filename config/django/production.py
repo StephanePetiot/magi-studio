@@ -1,15 +1,23 @@
 import os
 
-from .base import *
+from .base import *  # noqa
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+DEBUG = bool(int(os.environ.get("DJANGO_DEBUG", 0)))
 
-DEBUG = bool(int(os.environ.get('DJANGO_DEBUG', 0)))
-
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(' ')
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 USE_X_FORWARDED_HOST = True
 
 CORS_ALLOW_ALL_ORIGINS = False
+CSRF_TRUSTED_ORIGINS = ["https://3ia-demos.inria.fr", "https://www.3ia-demos.inria.fr"]
 
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-SECURE_SSL_REDIRECT = True
+ROOT_URL = os.environ.get("ROOT_URL", "")
+FORCE_SCRIPT_NAME = ROOT_URL + "/"
+SESSION_COOKIE_PATH = ROOT_URL + "/"
+SESSION_COOKIE_NAME = "magi-studio-sessionid"
+
+LOGIN_URL = ROOT_URL + LOGIN_URL  # noqa
+LOGIN_REDIRECT_URL = ROOT_URL + LOGIN_REDIRECT_URL  # noqa
+LOGOUT_REDIRECT_URL = ROOT_URL + LOGOUT_REDIRECT_URL  # noqa
+
+STATIC_URL = ROOT_URL + STATIC_URL  # noqa
+MEDIA_URL = ROOT_URL + MEDIA_URL  # noqa

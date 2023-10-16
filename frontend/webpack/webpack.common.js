@@ -1,7 +1,7 @@
 const Path = require('path');
 const Webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
@@ -45,8 +45,10 @@ module.exports = {
       "window.jQuery": 'jquery',
     }),
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: Path.resolve(__dirname, '../public/index.html'),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: Path.resolve(__dirname, '../src/assets/locales'), to: 'locales' }
+      ],
     }),
     new BundleTracker({ 
       filename: './webpack-stats.json',
@@ -73,7 +75,7 @@ module.exports = {
         test: /\.(ico|jpg|jpeg|png|gif|svg|webp)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'images/light/[name][ext]'
+          filename: 'images/[name][ext]'
         }
       },
       {

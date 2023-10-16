@@ -23,4 +23,18 @@
       "react/jsx-uses-react": "error",   
       "react/jsx-uses-vars": "error" 
     },
+    "globals": {
+      "__webpack_public_path__": "readonly",
+      "IMAGES": "readonly",
+      "GAME_SESSION_START_API_ENDPOINT": "readonly",
+      "GAME_SESSION_FINISH_API_ENDPOINT": "readonly",
+      "GAME_SESSION_DELETE_API_ENDPOINT": "readonly",
+      "INDEX_URL": "readonly",
+      "WEBSOCKETS_ROUTE": "readonly",
+      "FEEDBACK_API_ENDPOINT": "readonly",
+      "RESULT_API_ENDPOINT": "readonly",
+      "SESSION_ID": "readonly",
+      "SESSION_RESULT": "readonly",
+      "SESSION_FEEDBACK": "readonly"
+    }
   }

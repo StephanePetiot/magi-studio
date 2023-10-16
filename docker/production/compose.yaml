@@ -1,0 +1,68 @@
+version: '3.8'
+
+networks:
+  3ia-demos-network:
+    external: true
+
+services:
+  # Django app
+  mel-app:
+    image: registry.gitlab.inria.fr/3ia-techpool/demos/mel:production
+    container_name: mel-app
+    env_file: &env
+      - .env
+    volumes: &vol
+      - /var/www/static/mel/:${STATIC_ROOT}:rw
+      - /var/www/media/mel/:${MEDIA_ROOT}:rw
+    networks: &net
+      - 3ia-demos-network
+
+  # Gunicorn WSGI server
+  mel-wsgi:
+    image: registry.gitlab.inria.fr/3ia-techpool/demos/mel:production
+    command: start-gunicorn-server.sh
+    restart: unless-stopped
+    container_name: mel-wsgi
+    env_file: *env
+    volumes: *vol
+    depends_on:
+      - mel-app
+    ports:
+      - "8000"
+    networks: *net
+    
+  # Daphne ASGI server
+  mel-asgi:
+    image: registry.gitlab.inria.fr/3ia-techpool/demos/mel:production
+    command: start-daphne-server.sh
+    restart: unless-stopped
+    container_name: mel-asgi
+    env_file: *env
+    volumes: *vol
+    depends_on:
+      - mel-app
+    ports:
+      - "8001"
+    networks: *net
+
+  # Redis Broker
+  mel-broker:
+    image: redis:7-alpine
+    restart: unless-stopped
+    container_name: mel-broker
+    ports:
+      - "6379"
+    networks: *net
+
+  # Celery Worker
+  mel-worker:
+    image: registry.gitlab.inria.fr/3ia-techpool/demos/mel:production
+    command: start-celery-worker.sh
+    restart: unless-stopped
+    container_name: mel-worker
+    env_file: *env
+    volumes: *vol
+    depends_on:
+      - mel-broker
+      - mel-app
+    networks: *net
