@@ -14161,7 +14161,7 @@ nav #title {
     */
 @font-face {
   font-family: "Phudu Light";
-  src: url(http://0.0.0.0:8080/webfonts/Phudu-Light.ttf) format("truetype");
+  src: url(../webfonts/Phudu-Light.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -14170,7 +14170,7 @@ nav #title {
     */
 @font-face {
   font-family: "Phudu Regular";
-  src: url(http://0.0.0.0:8080/webfonts/Phudu-Regular.ttf) format("truetype");
+  src: url(../webfonts/Phudu-Regular.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -14179,7 +14179,7 @@ nav #title {
     */
 @font-face {
   font-family: "Phudu Bold";
-  src: url(http://0.0.0.0:8080/webfonts/Phudu-Bold.ttf) format("truetype");
+  src: url(../webfonts/Phudu-Bold.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
