@@ -1,6 +1,1 @@
-MARKDOWNIFY = {
-    "default": {
-        "BLEACH": False,
-        "STRIP": False
-    }
-}
+MARKDOWNIFY = {"default": {"BLEACH": False, "STRIP": False}}

@@ -1,9 +1,4 @@
-import csv
-import io
-import zipfile
-
 from django.contrib import admin
-from django.http import HttpResponse
 
 admin.site.site_header = "Magi Studio"
 

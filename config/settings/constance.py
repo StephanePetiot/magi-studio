@@ -5,22 +5,12 @@ CONSTANCE_BACKEND = "constance.backends.database.DatabaseBackend"
 CONSTANCE_ADDITIONAL_FIELDS = {
     "image_field": [
         "django.forms.ImageField",
-        {
-            "validators": [
-                FileExtensionValidator(
-                    allowed_extensions=[
-                        "png",
-                        'jpg'
-                    ]
-                )
-            ]
-        },
+        {"validators": [FileExtensionValidator(allowed_extensions=["png", "jpg"])]},
     ],
 }
 
 CONSTANCE_CONFIG = {
-    'COVER_IMAGE': ('otter-large.png', 'Cover Picture', 'image_field'),
-
+    "COVER_IMAGE": ("otter-large.png", "Cover Picture", "image_field"),
 }
 
 CONSTANCE_CONFIG_FIELDSETS = {

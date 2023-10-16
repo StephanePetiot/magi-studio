@@ -1,6 +1,6 @@
-from django.contrib.auth.models import AbstractBaseUser, Group
+from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import BaseUserManager as BUM
-from django.contrib.auth.models import PermissionsMixin
+from django.contrib.auth.models import Group, PermissionsMixin
 from django.db import models
 
 from app.common.models import BaseModel
@@ -11,11 +11,7 @@ class BaseUserManager(BUM):
         if not email:
             raise ValueError("Users must have an email address")
 
-        user = self.model(
-            email=self.normalize_email(email.lower()),
-            is_active=is_active,
-            is_staff=is_staff
-        )
+        user = self.model(email=self.normalize_email(email.lower()), is_active=is_active, is_staff=is_staff)
 
         if password is not None:
             user.set_password(password)
@@ -66,7 +62,7 @@ class BaseUser(BaseModel, AbstractBaseUser, PermissionsMixin):
                 self.groups.add(g)
             else:
                 self.groups.remove(g)
-        
+
         super(BaseUser, self).save(*args, **kwargs)
 
     class Meta:
