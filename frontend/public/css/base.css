@@ -14198,7 +14198,7 @@ nav #title {
 */
 @font-face {
   font-family: "Century Gothic Regular";
-  src: url(./frontend/public/webfonts/CenturyGothic.ttf) format("truetype");
+  src: url(../CenturyGothic.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -14207,7 +14207,7 @@ nav #title {
 */
 @font-face {
   font-family: "Century Gothic Bold";
-  src: url(./frontend/public/webfonts/CenturyGothic-Bold.ttf) format("truetype");
+  src: url(../webfonts/CenturyGothic-Bold.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -14216,7 +14216,7 @@ nav #title {
 */
 @font-face {
   font-family: "Century Gothic Bold Italic";
-  src: url(./frontend/public/webfonts/CenturyGothic-BoldItalic.ttf) format("truetype");
+  src: url(../webfonts/CenturyGothic-BoldItalic.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -14225,7 +14225,7 @@ nav #title {
 */
 @font-face {
   font-family: "Century Gothic Italic";
-  src: url(./frontend/public/webfonts/CenturyGothic-Italic.ttf) format("truetype");
+  src: url(../webfonts/CenturyGothic-Italic.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
