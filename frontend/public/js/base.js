@@ -671,7 +671,7 @@ eval("module.exports = __webpack_require__.p + \"images/fr.svg\";\n\n//# sourceU
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "http://0.0.0.0:8080/";
+/******/ 		__webpack_require__.p = "./frontend/public/";
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/css loading */

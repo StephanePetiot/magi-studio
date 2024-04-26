@@ -3,10 +3,10 @@
   \************************************************************************************************************************************************************************************************************************************************************************************/
 @font-face {
   font-family: "icon-font";
-  src: url('http://0.0.0.0:8080/webfonts/icon-font.ttf?09e70c9c7031b3178672d9f203d2d3de') format('truetype'),
-    url('http://0.0.0.0:8080/webfonts/icon-font.eot?09e70c9c7031b3178672d9f203d2d3de#iefix') format('embedded-opentype'),
-    url('http://0.0.0.0:8080/webfonts/icon-font.woff?09e70c9c7031b3178672d9f203d2d3de') format('woff'),
-    url('http://0.0.0.0:8080/webfonts/icon-font.svg?09e70c9c7031b3178672d9f203d2d3de#icon-font') format('svg');
+  src: url('./frontend/public/webfonts/icon-font.ttf?09e70c9c7031b3178672d9f203d2d3de') format('truetype'),
+    url('./frontend/public/webfonts/icon-font.eot?09e70c9c7031b3178672d9f203d2d3de#iefix') format('embedded-opentype'),
+    url('./frontend/public/webfonts/icon-font.woff?09e70c9c7031b3178672d9f203d2d3de') format('woff'),
+    url('./frontend/public/webfonts/icon-font.svg?09e70c9c7031b3178672d9f203d2d3de#icon-font') format('svg');
 }
 /*!***************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].use[1]!./node_modules/icon-font-loader/index.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].use[4]!./src/scss/pages/index.scss ***!
