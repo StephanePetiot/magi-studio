@@ -9,93 +9,205 @@
 {% endblock specific_styles %}
 
 {% block specific_scripts %}
+    <script>
+        {% autoescape off %}
+            const PROJECTS = {{ projects }}
+            const LANDING_BANNER = "{% get_media_prefix %}{{ banner_path }}"
+        {% endautoescape %}
+    </script>
     {% render_bundle 'index' 'js' %}
 {% endblock specific_scripts %}
 
 {% block content %}
     <div class = "min-vh-100">
-        <img class = "position-absolute w-100 h-100" src = {{ cover_image_url }} />
-        <div class = "bg-dark opacity-50 position-absolute w-100 h-100"></div>
-        <div class = "landing-section position-absolute w-100 h-100" id = "landing">
-            <div class = "container d-flex flex-column justify-content-evenly h-100 text-center text-white">
+        <div class = "index-section d-flex" id = "landing">
+            <div class = "container d-flex flex-column justify-content-evenly text-center text-white">
                 <div class = "landing-title py-5 fade-in">
                     <h1 class = "display-1">
-                        <span class = "icon-logo"></span>
-                        Magi Studio
+                        <span class = "icon-logo" style = "font-size: 10rem"></span>
+                        <span class = "fs-1 align-middle">Studio</span>
                     </hi>
                     <blockquote class = "blockquote">
                         <p>De la magie dans toutes vos créations !</p>
                     </blockquote>
                 </div>
-                <div class = "landing-sections fade-in d-flex flex-wrap justify-content-center my-5">
+                <div id = "landing-sections" class = "fade-in d-flex flex-wrap justify-content-evenly my-5 fs-5">
                     <div class = "m-3">
                         <h2>Traduction</h2>
-                        <p>Description de la section Traduction</p>
+                        <p>Toutes nos équipes <b>traduisent depuis la langue d’origine</b>: japonais, chinois, coréen, anglais</p>
                     </div>
                     <div class = "m-3">
                         <h2>Lettrage</h2>
-                        <p>Description de la section Lettrage</p>
+                        <p>Nous <b>maitrisons Photoshop et Indesign</b> pour intégrer le texte traduit dans vos séries</p>
                     </div>
                     <div class = "m-3">
                         <h2>Correction</h2>
-                        <p>Description de la section Correction</p>
+                        <p>Nous <b>corrigeons</b> et <b>adaptons</b> toutes les traductions pour les rendre les plus fluides et agréables possible</p>
                     </div>
                     <div class = "m-3">
                         <h2>Graphisme</h2>
-                        <p>Description de la section Graphisme</p>
+                        <p>Nous <b>reconstruisons toutes les images</b> après avoir effacé les textes d’origines et réalisons <b>le montage des maquettes</b></p>
                     </div>
                     <div class = "m-3">
-                        <h2>Relecture</h2>
-                        <p>Description de la section Relecture</p>
+                        <h2>Éditeur</h2>
+                        <p>Nous faisons en sorte que <b>tous les acteurs remplissent leur rôle à la perfection</b></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div data-bs-spy = "scroll" data-bs-target = "#navbar" data-bs-root-margin = "0px 0px -40%" tabindex = "0">
-        <div class = "landing-section" id = "studio">
+        <div class = "index-section bg-white text-center" id = "studio">
+            <div class = "container fade-in fs-5">
+                <h2 class = "text-start fw-bold">LE STUDIO</h2>
+                <div class = "row my-4 align-items-center">
+                    <div class = "col-12 col-lg-3">
+                        <img class = "w-100" src = {% static "images/studio-img_1.svg" %}/>
+                    </div>
+                    <div class = "col-12 col-lg-9 text-lg-start">
+                        <p>Bienvenue au Studio Magi, votre partenaire de confiance pour la localisation de contenus manga, manhua, webtoon et light novel.
+                            Fondé en février 2022 par les éditions ManED avec pour objectif de dynamiser une équipe sous-staffée, notre studio a
+                            rapidement pris son envol en offrant des services de qualité à nos premiers partenaires, notamment Izneo (aujourd'hui Ono), 
+                            avec qui nous avons collaboré sur des séries telles que "She may not be cute", "Straight F witch" et "The best like the sunlight".
+                        </p>
+                    </div>
+                </div>
+                <div class = "row my-4 flex-lg-row-reverse align-items-center">
+                    <div class = "col-12 col-lg-3">
+                        <img class = "w-100" src = {% static "images/studio-img_2.svg" %} />
+                    </div>
+                    <div class = "col-12 col-lg-9 text-lg-end">
+                        <p>
+                            Depuis nos débuts, nous avons élargi notre portefeuille de clients et de partenaires, rencontrant de nouveaux acteurs passionnants
+                            lors de Japan Expo 2022. Cette rencontre a marqué le début de collaborations fructueuses avec des plateformes et éditeurs telles
+                            que Piccoma, Nazca Editions et Mangas.io. En janvier 2023, nous avons consolidé notre présence sur le marché par le rachat de la 
+                            société ManED au sein de Mahô éditions, renforçant ainsi notre position dans le domaine de la localisation.
+                        </p>
+                    </div>
+                </div>
+                <div class = "row my-4 align-items-center">
+                    <div class = "col-12 col-lg-3">
+                        <img class = "w-100" src = {% static "images/studio-img_3.svg" %} />
+                    </div>
+                    <div class = "col-12 col-lg-9 text-lg-start">
+                        <p>
+                            Nos efforts continus pour offrir des services de qualité supérieure nous ont permis d'attirer de nouveaux clients prestigieux 
+                            tout au long de l'année 2023, parmi lesquels figurent Naban, Hariken, Taicca, Blackbox, JNC Nina, et bien d'autres encore. 
+                            Nous sommes fiers de jouer un rôle essentiel dans la mise en valeur de leurs contenus auprès du public francophone.
+                        </p>
+                    </div>
+                </div>
+                <div class = "row my-4 flex-lg-row-reverse align-items-center">
+                    <div class = "col-12 col-lg-3">
+                        <img class = "w-100" src = {% static "images/studio-img_4.svg" %} />
+                    </div>
+                    <div class = "col-12 col-lg-9 text-lg-end">
+                        <p>
+                            Notre équipe dévouée est composée de professionnels chevronnés, comprenant 1 directeur de projet, 5 éditeurs, 2 managers, 
+                            12 lettreurs, 11 traducteurs japonais, 2 traducteurs chinois, 14 traducteurs coréens, 8 correcteurs, 4 reconstructeurs 
+                            et 6 relecteurs. Chaque membre apporte son expertise unique pour garantir des résultats exceptionnels à chaque projet.
+                        </p>
+                    </div>
+                </div>
+                <div class = "row my-4 align-items-center">
+                    <div class = "col-12 col-lg-3">
+                        <img class = "w-100" src = {% static "images/studio-img_5.svg" %} />
+                    </div>
+                    <div class = "col-12 col-lg-9 text-lg-start">
+                        <p>
+                            Au Studio Magi, nous sommes animés par notre passion pour les médias visuels et notre engagement envers l'excellence. 
+                            Nous sommes impatients de collaborer avec vous et de vous aider à donner vie à vos projets les plus ambitieux.
+                        </p>
+                    </div>
+                </div>
+                <div class = "mt-5 pb-5">
+                    <p>
+                        Contactez-nous dès aujourd'hui pour discuter de la manière dont nous pouvons vous accompagner dans la réalisation de vos 
+                        besoins de localisation.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class = "index-section bg-light" id = "projects">
+            <div class = "container fade-in pb-5">
+                <h2 class = "fw-bold">LES PROJETS</h2>
+                <div id = "projects-app"></div>
+            </div>
+        </div>
+        <div class = "index-section bg-white" id = "they-trust-us">
+            <div class = "fade-in">
+                <h2 class = "text-center fw-bold mb-3">ILS NOUS FONT CONFIANCE</h2>
+                <div class = "position-absolute overflow-hidden w-100 py-3 container-fluid" id = "partners">
+                    <div class = "d-flex justify-content-between align-items-center position-relative w-100 h-100" style = "z-index: 1">
+                        <a href = "https://nazca-editions.fr/" target = "blank">
+                            <img src = "{% static 'images/nazca-editions_logo.jpg' %}">
+                        </a>
+                        <a href = "https://www.naban-editions.com/" target = "blank">
+                            <img src = "{% static 'images/naban_logo.png' %}">
+                        </a>
+                        <a href = "https://piccoma.com/fr/" target = "blank">
+                            <img src = "{% static 'images/piccoma_logo.png' %}">
+                        </a>
+                        <a href = "https://hariken-editions.com/" target = "blank">
+                            <img src = "{% static 'images/hariken_logo.png' %}">
+                        </a>
+                        <a href = "https://www.mangas.io/" target = "blank">
+                            <img src = "{% static 'images/mangasio_logo.svg' %}">
+                        </a>
+                        <a href = "https://en.taicca.tw/" target = "blank">
+                            <img src = "{% static 'images/taicca_logo.png' %}">
+                        </a>
+                        <a href = "https://www.blackbonesboutique.com/" target = "blank">
+                            <img src = "{% static 'images/blackbox_logo.png' %}">
+                        </a>
+                        <a href = "https://www.izneo.com/fr" target = "blank">
+                            <img src = "{% static 'images/izneo_logo.png' %}">
+                        </a>
+                        <a href = "https://jnc-nina.eu/fr" target = "blank">
+                            <img src = "{% static 'images/jnc-nina_logo.png' %}">
+                        </a>
+                        <a></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "index-section bg-light" id = "contact">
             <div class = "container fade-in">
-                <h2>Le studio</h2>
+                <h2 class = "fw-bold">CONTACT</h2>
                 <div class = "row">
-                    <div class = "col-12 col-lg-6">
-                        <img src = {{ studio_image_url }} />
+                    <div class = "col-lg-5 col-12 border-lg-1 border-end border-secondary pe-lg-5">
+                        <p>
+                            Si vous souhaitez nous confier un projet, obtenir un devis ou toute autre demande, contactez-nous : 
+                        </p>
+                        <p>
+                            <div class = "fw-bold">Hicham Chennaf</div>
+                            <a class = "bi bi-at text-primary d-block" href = "mailto:hicham.chennaf@maho-editions.fr?subject=Magi Studio Contact">&nbsp;hicham.chennaf@maho-editions.fr</a>
+                            <a class = "bi bi-telephone text-primary d-block" href = "href=tel:+33681158383">&nbsp;06 81 15 83 83</a>
+                        </p>
+                        <p>
+                            Pour toutes les demandes de recrutements, ce dernier ne se fait que par co-optation. Ne nous contactez donc pas à ce sujet via cette fiche de contact.
+                        </p>
+                        <p>
+                            Cette solution a été adopté par le studio afin de conserver une équipe de confiance et de qualité.
+                        </p>
                     </div>
-                    <div class = "col-12 col-lg-6">
-                        <p>Magi studio est un studio. Voilà</p>
+                    <div class = "col-lg-7 col-12 ps-lg-5">
+                        <form method = "POST">
+                            {% csrf_token %}
+                            <div class = "form-floating my-3">
+                                <input class = "form-control" name = "email" placeholder = "Email address" value = "{{ form.cleaned_data.email }}" id = "contact-email">
+                                <label for = "contact-email">Adresse mail</label>
+                            </div>
+                            <div class = "form-floating my-3">
+                                <textarea class = "form-control" name = "content" placeholder = "Message" value = "{{ form.cleaned_data.content }}" id = "contact-message"></textarea>
+                                <label for = "contact-message">Message</label>
+                            </div>
+                            <div class = "my-3 text-end">
+                                <button class = "btn btn-primary btn-lg text-light" type = "submit">Send</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class = "landing-section bg-light" id = "projects">
-            <div class = "container fade-in">
-                <h2>Les projets</h2>
-                <div class = "projects-app"></div>
-            </div>
-        </div>
-        <div class = "landing-section" id = "team">
-            <div class = "container fade-in">
-                <h2>L'équipe</h2>
-                <div class = "team-app"></div>
-            </div>
-        </div>
-        <div class = "landing-section bg-light" id = "partners">
-            <div class = "container fade-in">
-                <h2>Ils nous font confiance</h2>
-                <div class = "d-flex justify-content-around align-items-center flex-wrap">
-                    {% for sponsor_pic in sponsor_pics %}
-                        <img src = {{ sponsor_pic }} />
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        <div class = "landing-section" id = "behind-the-scenes">
-            <div class = "container fade-in">
-                <h2>Les coulisses</h2>
-            </div>
-        </div>
-        <div class = "landing-section bg-light" id = "contact">
-            <div class = "container fade-in">
-                <h2>Contact</h2>
             </div>
         </div>
     </div>

@@ -8,10 +8,10 @@ i18n.use(initReactI18next).use(HttpApi).init({
     ns: [
         "common",
         "glossary",
-        "Index/IndexApp",
-        "Index/PlayerMenuPanel",
-        "Session/SessionApp",
-        "Session/PlayerFeedbackPanel"
+        // "Index/IndexApp",
+        // "Index/PlayerMenuPanel",
+        // "Session/SessionApp",
+        // "Session/PlayerFeedbackPanel"
     ],
     defaultNS: "common",
     interpolation: {

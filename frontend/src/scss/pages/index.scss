@@ -1,1 +1,200 @@
-// TO DO
+@import "../abstracts/variables";
+
+#landing {
+  text-shadow: 1px 1px 1px rgb(0 0 0 / 50%);
+}
+
+#landing-banner {
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.index-section {
+  min-height: 100vh;
+  padding-top: $header-height + $index-section-padding;
+}
+
+@media (min-width: 992px) {
+  #landing-sections div {
+    width: 25% !important;
+  }
+}
+
+#contact {
+  min-height: 100vh - $index-section-padding - $footer-height;
+}
+
+$partners-banner-height: 100px;
+
+#they-trust-us {
+  min-height: auto;
+  padding-bottom: calc($partners-banner-height + $index-section-padding + $header-height);
+}
+
+#partners {
+  height: $partners-banner-height;
+}
+
+.project-card img {
+  transition: all ease-in 0.2s;
+  aspect-ratio: 75 / 100 !important;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-card-img-overlay {
+  transition: all ease-in 0.2s;
+  background: black;
+  opacity: 0;
+}
+
+.project-card-text {
+  text-shadow: 1px 1px 1px rgb(0 0 0 / 50%);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all ease-in 0.2s;
+}
+
+.project-card:hover .project-card-img-overlay {
+  opacity: 0.3;
+}
+
+.project-card .card-title {
+  transition: all ease-in 0.2s;
+}
+
+.project-card:hover .card-title {
+  color: $primary;
+}
+
+.project-card:hover .project-card-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#partners a,
+#partners img {
+  position: relative;
+  height: 100%;
+  margin-left: 25px;
+  margin-right: 25px;
+  transition: all linear 0.1s;
+}
+
+#partners img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 25px 10px rgb(255 255 255 / 40%);
+}
+
+.bordered-container::before,
+.bordered-container::after {
+  content: "";
+  opacity: 0;
+  width: 0;
+  height: 3px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: $primary;
+  transition-delay: 0s;
+}
+
+.bordered-container::before {
+  right: 0;
+  top: 0;
+}
+
+.bordered-container::after {
+  left: 0;
+  bottom: 0;
+}
+
+.bordered-container .inner-bordered-container::before,
+.bordered-container .inner-bordered-container::after {
+  content: "";
+  opacity: 0;
+  width: 3px;
+  height: 0;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: $primary;
+  transition-delay: 0.2s;
+}
+
+.bordered-container .inner-bordered-container::before {
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+.bordered-container .inner-bordered-container::after {
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+}
+
+.bordered-container:hover::before,
+.bordered-container:hover::after {
+  opacity: 1;
+  width: 100%;
+  transition-delay: 0.2s;
+}
+
+.bordered-container:hover .inner-bordered-container::before,
+.bordered-container:hover .inner-bordered-container::after {
+  opacity: 1;
+  height: 100%;
+  transition-delay: 0s;
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    background:
+      linear-gradient(
+        to right,
+        fade_out(#fff, 1) 0%,
+        fade_out(#fff, 0.7) 100%
+      );
+    content: "";
+    display: block;
+    height: 100%;
+    left: -75%;
+    position: absolute;
+    top: 0;
+    transform: skewX(-25deg);
+    width: 50%;
+    z-index: 2;
+  }
+
+  &:hover,
+  &:focus {
+    &::before {
+      animation: shine 0.85s;
+    }
+  }
+
+  @keyframes shine {
+    100% {
+      left: 125%;
+    }
+  }
+}

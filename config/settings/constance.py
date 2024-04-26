@@ -10,7 +10,7 @@ CONSTANCE_ADDITIONAL_FIELDS = {
 }
 
 CONSTANCE_CONFIG = {
-    "COVER_IMAGE": ("otter-large.png", "Cover Picture", "image_field"),
+    "LANDING_BANNER": ("otter-large.png", "Cover Picture", "image_field"),
 }
 
 CONSTANCE_CONFIG_FIELDSETS = {

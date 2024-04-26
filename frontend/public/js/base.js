@@ -46,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*******************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n    if(true) {\n      // 1697444729979\n      var cssReload = __webpack_require__(/*! ../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ \"./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  \n\n//# sourceURL=webpack://Magi_Studio/./node_modules/bootstrap-icons/font/bootstrap-icons.min.css?");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n    if(true) {\n      (function() {\n        var localsJsonString = undefined;\n        // 1714157339112\n        var cssReload = __webpack_require__(/*! ../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ \"./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {});\n        // only invalidate when locals change\n        if (\n          module.hot.data &&\n          module.hot.data.value &&\n          module.hot.data.value !== localsJsonString\n        ) {\n          module.hot.invalidate();\n        } else {\n          module.hot.accept();\n        }\n        module.hot.dispose(function(data) {\n          data.value = localsJsonString;\n          cssReload();\n        });\n      })();\n    }\n  \n\n//# sourceURL=webpack://Magi_Studio/./node_modules/bootstrap-icons/font/bootstrap-icons.min.css?");
 
 /***/ }),
 
@@ -56,7 +56,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \****************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n    if(true) {\n      // 1697444735113\n      var cssReload = __webpack_require__(/*! ../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ \"./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  \n\n//# sourceURL=webpack://Magi_Studio/./src/scss/main.scss?");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n    if(true) {\n      (function() {\n        var localsJsonString = undefined;\n        // 1714157341418\n        var cssReload = __webpack_require__(/*! ../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ \"./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {});\n        // only invalidate when locals change\n        if (\n          module.hot.data &&\n          module.hot.data.value &&\n          module.hot.data.value !== localsJsonString\n        ) {\n          module.hot.invalidate();\n        } else {\n          module.hot.accept();\n        }\n        module.hot.dispose(function(data) {\n          data.value = localsJsonString;\n          cssReload();\n        });\n      })();\n    }\n  \n\n//# sourceURL=webpack://Magi_Studio/./src/scss/main.scss?");
 
 /***/ }),
 
@@ -90,7 +90,6 @@ eval("module.exports = __webpack_require__.p + \"images/fr.svg\";\n\n//# sourceU
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
-/******/ 			if (cachedModule.error !== undefined) throw cachedModule.error;
 /******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
@@ -101,15 +100,10 @@ eval("module.exports = __webpack_require__.p + \"images/fr.svg\";\n\n//# sourceU
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		try {
-/******/ 			var execOptions = { id: moduleId, module: module, factory: __webpack_modules__[moduleId], require: __webpack_require__ };
-/******/ 			__webpack_require__.i.forEach(function(handler) { handler(execOptions); });
-/******/ 			module = execOptions.module;
-/******/ 			execOptions.factory.call(module.exports, module, module.exports, execOptions.require);
-/******/ 		} catch(e) {
-/******/ 			module.error = e;
-/******/ 			throw e;
-/******/ 		}
+/******/ 		var execOptions = { id: moduleId, module: module, factory: __webpack_modules__[moduleId], require: __webpack_require__ };
+/******/ 		__webpack_require__.i.forEach(function(handler) { handler(execOptions); });
+/******/ 		module = execOptions.module;
+/******/ 		execOptions.factory.call(module.exports, module, module.exports, execOptions.require);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -206,7 +200,7 @@ eval("module.exports = __webpack_require__.p + \"images/fr.svg\";\n\n//# sourceU
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("1c1c7a336a1978a3f1e0")
+/******/ 		__webpack_require__.h = () => ("92df844a0fe816e04c8e")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -304,7 +298,6 @@ eval("module.exports = __webpack_require__.p + \"images/fr.svg\";\n\n//# sourceU
 /******/ 		var currentUpdateApplyHandlers;
 /******/ 		var queuedInvalidatedModules;
 /******/ 		
-/******/ 		// eslint-disable-next-line no-unused-vars
 /******/ 		__webpack_require__.hmrD = currentModuleData;
 /******/ 		
 /******/ 		__webpack_require__.i.push(function (options) {
@@ -365,8 +358,8 @@ eval("module.exports = __webpack_require__.p + \"images/fr.svg\";\n\n//# sourceU
 /******/ 					Object.defineProperty(fn, name, createPropertyDescriptor(name));
 /******/ 				}
 /******/ 			}
-/******/ 			fn.e = function (chunkId) {
-/******/ 				return trackBlockingPromise(require.e(chunkId));
+/******/ 			fn.e = function (chunkId, fetchPriority) {
+/******/ 				return trackBlockingPromise(require.e(chunkId, fetchPriority));
 /******/ 			};
 /******/ 			return fn;
 /******/ 		}
@@ -485,7 +478,7 @@ eval("module.exports = __webpack_require__.p + \"images/fr.svg\";\n\n//# sourceU
 /******/ 			for (var i = 0; i < registeredStatusHandlers.length; i++)
 /******/ 				results[i] = registeredStatusHandlers[i].call(null, newStatus);
 /******/ 		
-/******/ 			return Promise.all(results);
+/******/ 			return Promise.all(results).then(function () {});
 /******/ 		}
 /******/ 		
 /******/ 		function unblock() {
@@ -558,8 +551,7 @@ eval("module.exports = __webpack_require__.p + \"images/fr.svg\";\n\n//# sourceU
 /******/ 									updatedModules
 /******/ 								);
 /******/ 								return promises;
-/******/ 							},
-/******/ 							[])
+/******/ 							}, [])
 /******/ 						).then(function () {
 /******/ 							return waitForBlockingPromises(function () {
 /******/ 								if (applyOnUpdate) {
@@ -690,15 +682,19 @@ eval("module.exports = __webpack_require__.p + \"images/fr.svg\";\n\n//# sourceU
 /******/ 		
 /******/ 			linkTag.rel = "stylesheet";
 /******/ 			linkTag.type = "text/css";
+/******/ 			if (__webpack_require__.nc) {
+/******/ 				linkTag.nonce = __webpack_require__.nc;
+/******/ 			}
 /******/ 			var onLinkComplete = (event) => {
 /******/ 				// avoid mem leaks.
 /******/ 				linkTag.onerror = linkTag.onload = null;
 /******/ 				if (event.type === 'load') {
 /******/ 					resolve();
 /******/ 				} else {
-/******/ 					var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 					var errorType = event && event.type;
 /******/ 					var realHref = event && event.target && event.target.href || fullhref;
-/******/ 					var err = new Error("Loading CSS chunk " + chunkId + " failed.\n(" + realHref + ")");
+/******/ 					var err = new Error("Loading CSS chunk " + chunkId + " failed.\n(" + errorType + ": " + realHref + ")");
+/******/ 					err.name = "ChunkLoadError";
 /******/ 					err.code = "CSS_CHUNK_LOAD_FAILED";
 /******/ 					err.type = errorType;
 /******/ 					err.request = realHref;
@@ -708,6 +704,7 @@ eval("module.exports = __webpack_require__.p + \"images/fr.svg\";\n\n//# sourceU
 /******/ 			}
 /******/ 			linkTag.onerror = linkTag.onload = onLinkComplete;
 /******/ 			linkTag.href = fullhref;
+/******/ 		
 /******/ 		
 /******/ 			if (oldTag) {
 /******/ 				oldTag.parentNode.insertBefore(linkTag, oldTag.nextSibling);
@@ -772,6 +769,10 @@ eval("module.exports = __webpack_require__.p + \"images/fr.svg\";\n\n//# sourceU
 /******/ 				}));
 /******/ 			});
 /******/ 		}
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
@@ -1322,10 +1323,10 @@ eval("module.exports = __webpack_require__.p + \"images/fr.svg\";\n\n//# sourceU
 /******/ 	// module cache are used so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	__webpack_require__.O(undefined, ["npm.html-entities","npm.webpack-dev-server","npm.core-js","npm.events","vendor-node_modules_bootstrap-icons_font_bootstrap-icons_min_css-node_modules_icon-font-loade-ab9a48","npm.jquery","npm.bootstrap","vendors-node_modules_ansi-html-community_index_js-node_modules_icon-font-loader_src_fontface_-02a862"], () => (__webpack_require__("./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=0.0.0.0&port=8080&pathname=%2Fws&logging=error&overlay=true&reconnect=10&hot=true&live-reload=true")))
-/******/ 	__webpack_require__.O(undefined, ["npm.html-entities","npm.webpack-dev-server","npm.core-js","npm.events","vendor-node_modules_bootstrap-icons_font_bootstrap-icons_min_css-node_modules_icon-font-loade-ab9a48","npm.jquery","npm.bootstrap","vendors-node_modules_ansi-html-community_index_js-node_modules_icon-font-loader_src_fontface_-02a862"], () => (__webpack_require__("./node_modules/webpack/hot/dev-server.js")))
-/******/ 	__webpack_require__.O(undefined, ["npm.html-entities","npm.webpack-dev-server","npm.core-js","npm.events","vendor-node_modules_bootstrap-icons_font_bootstrap-icons_min_css-node_modules_icon-font-loade-ab9a48","npm.jquery","npm.bootstrap","vendors-node_modules_ansi-html-community_index_js-node_modules_icon-font-loader_src_fontface_-02a862"], () => (__webpack_require__("./node_modules/icon-font-loader/src/fontface.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["npm.html-entities","npm.webpack-dev-server","npm.core-js","npm.events","vendor-node_modules_bootstrap-icons_font_bootstrap-icons_min_css-node_modules_icon-font-loade-ab9a48","npm.jquery","npm.bootstrap","vendors-node_modules_ansi-html-community_index_js-node_modules_icon-font-loader_src_fontface_-02a862"], () => (__webpack_require__("./src/pages/base.js")))
+/******/ 	__webpack_require__.O(undefined, ["npm.jquery","npm.core-js","npm.html-entities","npm.webpack-dev-server","npm.events","vendor-node_modules_bootstrap-icons_font_bootstrap-icons_min_css-node_modules_icon-font-loade-ab9a48","npm.bootstrap","vendors-node_modules_ansi-html-community_index_js-node_modules_icon-font-loader_src_fontface_-02a862"], () => (__webpack_require__("./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=0.0.0.0&port=8080&pathname=%2Fws&logging=error&overlay=true&reconnect=10&hot=true&live-reload=true")))
+/******/ 	__webpack_require__.O(undefined, ["npm.jquery","npm.core-js","npm.html-entities","npm.webpack-dev-server","npm.events","vendor-node_modules_bootstrap-icons_font_bootstrap-icons_min_css-node_modules_icon-font-loade-ab9a48","npm.bootstrap","vendors-node_modules_ansi-html-community_index_js-node_modules_icon-font-loader_src_fontface_-02a862"], () => (__webpack_require__("./node_modules/webpack/hot/dev-server.js")))
+/******/ 	__webpack_require__.O(undefined, ["npm.jquery","npm.core-js","npm.html-entities","npm.webpack-dev-server","npm.events","vendor-node_modules_bootstrap-icons_font_bootstrap-icons_min_css-node_modules_icon-font-loade-ab9a48","npm.bootstrap","vendors-node_modules_ansi-html-community_index_js-node_modules_icon-font-loader_src_fontface_-02a862"], () => (__webpack_require__("./node_modules/icon-font-loader/src/fontface.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["npm.jquery","npm.core-js","npm.html-entities","npm.webpack-dev-server","npm.events","vendor-node_modules_bootstrap-icons_font_bootstrap-icons_min_css-node_modules_icon-font-loade-ab9a48","npm.bootstrap","vendors-node_modules_ansi-html-community_index_js-node_modules_icon-font-loader_src_fontface_-02a862"], () => (__webpack_require__("./src/pages/base.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

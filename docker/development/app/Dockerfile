@@ -8,8 +8,8 @@ ENV PYTHONUNBUFFERED 1
 
 # Create a user to avoid running containers as root in production
 # Need to specify UID/GID to avoid permission issues on mounted volumes
-RUN addgroup --system --gid 1000 app  \
-    && adduser --system --ingroup app --uid 1000 --home=/home/app app
+RUN addgroup --system --gid 1001 app  \
+    && adduser --system --ingroup app --uid 1001 --home=/home/app app
 # Install os-level dependencies (as root)
 RUN apt-get update && apt-get install -y -q --no-install-recommends \
   # dependencies for building Python packages
