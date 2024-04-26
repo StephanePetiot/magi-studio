@@ -57,102 +57,106 @@ window.onload = () => {
   setTimeout(() => {
     navDomElement.classList.remove('opacity-0');
   }, 1500);
+
+
+
+
+  const studioDomElement = document.querySelector('#studio');
+  const studioFadeInDomElement = document.querySelector('#studio .fade-in');
+  const studioObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          studioFadeInDomElement.classList.add("fade-in-left");
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  studioObserver.observe(studioDomElement);
+
+  const projectsDomElement = document.querySelector('#projects');
+  const projectsFadeInDomElement = document.querySelector('#projects .fade-in');
+  const projectsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          projectsFadeInDomElement.classList.add("fade-in-left");
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  projectsObserver.observe(projectsDomElement);
+
+  const theyTrustUsDomElement = document.querySelector('#they-trust-us');
+  const theyTrustUsFadeInDomElement = document.querySelector('#they-trust-us .fade-in');
+  const theyTrustUsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          theyTrustUsFadeInDomElement.classList.add("fade-in-left");
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  theyTrustUsObserver.observe(theyTrustUsDomElement);
+
+  const contactDomElement = document.querySelector('#contact');
+  const contactFadeInDomElement = document.querySelector('#contact .fade-in');
+  const contactObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          contactFadeInDomElement.classList.add("fade-in-left");
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  contactObserver.observe(contactDomElement);
+
+
+  /* === PARTNERS ANIMATIONS === */
+  const partners = $("#partners");
+  const firstScrollDiv = partners.children()[0];
+
+  const clonedMembers3ia = partners.clone(); // CLONING CONTAINER FOR INFINITE REPEAT
+  const secondScrollDiv = clonedMembers3ia.children()[0];
+  partners.parent().append(clonedMembers3ia);
+
+  const initPositions = () => {
+      firstScrollDiv.style.transform = `translateX(0px)`;
+      secondScrollDiv.style.transform = `translateX(${firstScrollDiv.scrollWidth}px)`;
+  };
+
+  // SCROLL FUNCTION
+  let scrollPosition = 0;
+  const scrollLoop = ({scrollSpeed = 1}) => {
+        scrollPosition += scrollSpeed;
+        if (scrollPosition > firstScrollDiv.scrollWidth) {
+            scrollPosition = 0;
+            firstScrollDiv.style.transform = `translateX(-${scrollPosition}px)`;
+            secondScrollDiv.style.transform = `translateX(${firstScrollDiv.scrollWidth - scrollPosition}px)`;
+        }
+        firstScrollDiv.style.transform = `translateX(-${scrollPosition}px)`;
+        secondScrollDiv.style.transform = `translateX(${firstScrollDiv.scrollWidth - scrollPosition}px)`;
+      
+        requestAnimationFrame(scrollLoop);
+  };
+
+  $(window).on("resize", () => { initPositions(); });
+
+  initPositions();
+
+  // Start the continuous scroll loop
+  scrollLoop({ scrollSpeed: 1 });
+
+  createRoot(document.getElementById("projects-app")).render(
+    <ProjectsApp
+      projects = { PROJECTS }
+    />
+  );
 };
 
-const studioDomElement = document.querySelector('#studio');
-const studioFadeInDomElement = document.querySelector('#studio .fade-in');
-const studioObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        studioFadeInDomElement.classList.add("fade-in-left");
-      }
-    });
-  },
-  { threshold: 0.5 }
-);
-studioObserver.observe(studioDomElement);
-
-const projectsDomElement = document.querySelector('#projects');
-const projectsFadeInDomElement = document.querySelector('#projects .fade-in');
-const projectsObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        projectsFadeInDomElement.classList.add("fade-in-left");
-      }
-    });
-  },
-  { threshold: 0.5 }
-);
-projectsObserver.observe(projectsDomElement);
-
-const theyTrustUsDomElement = document.querySelector('#they-trust-us');
-const theyTrustUsFadeInDomElement = document.querySelector('#they-trust-us .fade-in');
-const theyTrustUsObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        theyTrustUsFadeInDomElement.classList.add("fade-in-left");
-      }
-    });
-  },
-  { threshold: 0.5 }
-);
-theyTrustUsObserver.observe(theyTrustUsDomElement);
-
-const contactDomElement = document.querySelector('#contact');
-const contactFadeInDomElement = document.querySelector('#contact .fade-in');
-const contactObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        contactFadeInDomElement.classList.add("fade-in-left");
-      }
-    });
-  },
-  { threshold: 0.5 }
-);
-contactObserver.observe(contactDomElement);
-
-
-/* === PARTNERS ANIMATIONS === */
-const partners = $("#partners");
-const firstScrollDiv = partners.children()[0];
-
-const clonedMembers3ia = partners.clone(); // CLONING CONTAINER FOR INFINITE REPEAT
-const secondScrollDiv = clonedMembers3ia.children()[0];
-partners.parent().append(clonedMembers3ia);
-
-const initPositions = () => {
-    firstScrollDiv.style.transform = `translateX(0px)`;
-    secondScrollDiv.style.transform = `translateX(${firstScrollDiv.scrollWidth}px)`;
-};
-
-// SCROLL FUNCTION
-let scrollPosition = 0;
-const scrollLoop = ({scrollSpeed = 1}) => {
-      scrollPosition += scrollSpeed;
-      if (scrollPosition > firstScrollDiv.scrollWidth) {
-          scrollPosition = 0;
-          firstScrollDiv.style.transform = `translateX(-${scrollPosition}px)`;
-          secondScrollDiv.style.transform = `translateX(${firstScrollDiv.scrollWidth - scrollPosition}px)`;
-      }
-      firstScrollDiv.style.transform = `translateX(-${scrollPosition}px)`;
-      secondScrollDiv.style.transform = `translateX(${firstScrollDiv.scrollWidth - scrollPosition}px)`;
-    
-      requestAnimationFrame(scrollLoop);
-};
-
-$(window).on("resize", () => { initPositions(); });
-
-initPositions();
-
-// Start the continuous scroll loop
-scrollLoop({ scrollSpeed: 1 });
-
-createRoot(document.getElementById("projects-app")).render(
-  <ProjectsApp
-    projects = { PROJECTS }
-  />
-);
