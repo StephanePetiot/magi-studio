@@ -71,7 +71,7 @@ window.onload = () => {
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.15 }
   );
   studioObserver.observe(studioDomElement);
 
