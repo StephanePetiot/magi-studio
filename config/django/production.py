@@ -8,7 +8,7 @@ ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 USE_X_FORWARDED_HOST = True
 
 CORS_ALLOW_ALL_ORIGINS = False
-CSRF_TRUSTED_ORIGINS = ["https://3ia-demos.inria.fr", "https://www.3ia-demos.inria.fr"]
+CSRF_TRUSTED_ORIGINS = ["https://studiomagi.maho-editions.com", "https://www.studiomagi.maho-editions.com"]
 
 ROOT_URL = os.environ.get("ROOT_URL", "")
 FORCE_SCRIPT_NAME = ROOT_URL + "/"

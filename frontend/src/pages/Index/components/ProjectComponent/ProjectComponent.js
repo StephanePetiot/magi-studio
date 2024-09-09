@@ -2,16 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const ProjectComponent = (props) => {
-
-    return <div
-        className = "project-card card d-inline-block align-top m-3 border-0"
-        style = {{ width: "420px", maxWidth: "85vw" }}
-    >
+    return <div className = "project-card card w-100">
         <div className = "bordered-container">
             <div className = "inner-bordered-container">
-                <div className = "card-body"
-                    style = {{ height: "100px" }}
-                >
+                <div className = "card-body" style = {{ minHeight: "100px" }}>
                     <div className = "card-title fs-4 fw-bold">{ props.title.toUpperCase() }</div>
                     <div className = "card-subtitle fs-5">{ props.subtitle }</div>
                 </div>
@@ -31,7 +25,7 @@ ProjectComponent.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     description: PropTypes.string,
-    picture: PropTypes.object
+    picture: PropTypes.string
 };
 
 export default ProjectComponent;

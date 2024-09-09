@@ -60,4 +60,6 @@ COPY --chown=app:app manage.py manage.py
 COPY --from=static-build --chown=app:app /code/frontend/build /code/frontend/build
 COPY --from=static-build --chown=app:app /code/frontend/templates /code/frontend/templates
 COPY --from=static-build --chown=app:app /code/frontend/webpack-stats.json /code/frontend/webpack-stats.json
+
+USER root
 CMD ["prepare-production.sh"]

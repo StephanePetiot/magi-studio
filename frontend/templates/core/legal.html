@@ -7,12 +7,47 @@
 {% block title %}Legal{% endblock title %}
 
 {% block specific_styles %}
+    {% render_bundle 'legal' 'css' %}
 {% endblock specific_styles %}
 
 {% block specific_scripts %}
+    {% render_bundle 'legal' 'js' %}
 {% endblock specific_scripts %}
 
 {% block content %}
-    <div class = "min-vh-100">
+    <div class = "container">
+        <h1 class = "text-center">Mentions légales</h1>
+        <p>
+            Le présent site https://www.studiomagi.maho-editions.com/ est édité par l’entreprise MAHÔ ÉDITIONS SAS, SAS au capital de 10 000 euros (dix mille euros), enregistré au RCS de Versailles sous le numéro 878 690 033, ayant son siège social au 2 place de Touraine, à Versailles (78000), France.
+        </p>
+        <p>
+            Le responsable de la publication est M. Aurélien Martinez, en sa qualité de représentant légal de Mahô Éditions SAS. 
+        </p>
+        <p>
+            Conception, design et réalisation : Stéphane Petiot
+        </p>
+        <h3>Données personnelles et droit de rectification</h3>
+        <p>
+            En conformité avec les dispositions de la loi du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés, vous disposez d'un droit d'accès et de rectification portant sur les données vous concernant en écrivant au siège social ou en nous contactant ici (insérer formulaire de contact ou mail de contact).
+        </p>
+        <h3 >Site hébergé par</h3>
+        <p class = "text-center">
+            OVH<br/>
+            SAS au capital de 10 000 000 €<br/>
+            RCS Roubaix – Tourcoing 424 761 419 00045<br/>
+            Siège social : 2 rue Kellermann 59100 Roubaix France.<br/>
+        </p>
+
+        <h3>Copyright</h3>
+        <p>
+            Conformément à l’article L.122-5 du code de la propriété intellectuelle, tous les textes, commentaires, logiciels, illustrations et images fixes ou animées reproduits ou mis à disposition sur ce site sont protégés par le droit d’auteur en France et dans le reste du monde. A ce titre et conformément aux dispositions du Code de la Propriété intellectuelle, seules les représentations définies à l’article L. 122-5 (copie privée dans le cercle de la famille, analyses et courtes citations dans un but d'exemple et d'illustration, etc.) sont autorisées. 
+        </p>
+        <p>
+            Toute reproduction totale ou partielle du site yume-arts.com et de ses contenus est strictement interdit sans le consentement express de ses auteurs et constituerait une contrefaçon sanctionnée par l’article L.335-2 du code de la propriété intellectuelle. Vous vous engagez à ne pas modifier, copier, republier, transmettre, vendre ou distribuer de quelque manière que ce soit, les contenus.
+        </p>
+        <p>
+            Les liens présents sur ce site peuvent orienter l'utilisateur sur des sites extérieurs dont le contenu ne peut en aucune manière engager la responsabilité de la rédaction du site studiomagi.maho-editions.com. Enfin, toutes les marques citées appartiennent à leurs auteurs respectifs.
+        </p>
+        <p><a href="https://storyset.com/book">Book illustrations by Storyset</a></p>
     </div>
 {% endblock content %}

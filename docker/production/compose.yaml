@@ -1,68 +1,80 @@
 version: '3.8'
 
-networks:
-  3ia-demos-network:
-    external: true
+volumes:
+  magi-studio-database-data:
+  magi-studio-static:
+  magi-studio-media:
 
 services:
+  # Postgresql Database
+  magi-studio-database:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    container_name: magi-studio-database
+    env_file:
+      - .env
+    ports:
+      - 5432:5432
+    volumes:
+      - ./database/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+      - magi-studio-database-data:/var/lib/postgresql/data
+
   # Django app
-  mel-app:
-    image: registry.gitlab.inria.fr/3ia-techpool/demos/mel:production
-    container_name: mel-app
+  magi-studio-app:
+    image: spetiot/magi-studio:latest
+    container_name: magi-studio-app
     env_file: &env
       - .env
     volumes: &vol
-      - /var/www/static/mel/:${STATIC_ROOT}:rw
-      - /var/www/media/mel/:${MEDIA_ROOT}:rw
-    networks: &net
-      - 3ia-demos-network
+      - /var/www/static/magi-studio/:${STATIC_ROOT}:rw
+      - /var/www/media/magi-studio/:${MEDIA_ROOT}:rw
 
   # Gunicorn WSGI server
-  mel-wsgi:
-    image: registry.gitlab.inria.fr/3ia-techpool/demos/mel:production
+  magi-studio-wsgi:
+    image: spetiot/magi-studio:latest
     command: start-gunicorn-server.sh
     restart: unless-stopped
-    container_name: mel-wsgi
+    container_name:  magi-studio-wsgi
     env_file: *env
     volumes: *vol
     depends_on:
-      - mel-app
+      -  magi-studio-app
     ports:
+      - "8000:8000"
+    expose:
       - "8000"
-    networks: *net
     
   # Daphne ASGI server
-  mel-asgi:
-    image: registry.gitlab.inria.fr/3ia-techpool/demos/mel:production
+  magi-studio-asgi:
+    image: spetiot/magi-studio:latest
     command: start-daphne-server.sh
     restart: unless-stopped
-    container_name: mel-asgi
+    container_name: magi-studio-asgi
     env_file: *env
     volumes: *vol
     depends_on:
-      - mel-app
+      - magi-studio-app
     ports:
+      - "8001:8001"
+    expose:
       - "8001"
-    networks: *net
 
   # Redis Broker
-  mel-broker:
+  magi-studio-broker:
     image: redis:7-alpine
     restart: unless-stopped
-    container_name: mel-broker
+    container_name: magi-studio-broker
     ports:
       - "6379"
-    networks: *net
 
   # Celery Worker
-  mel-worker:
-    image: registry.gitlab.inria.fr/3ia-techpool/demos/mel:production
+  magi-studio-worker:
+    image: spetiot/magi-studio:latest
     command: start-celery-worker.sh
     restart: unless-stopped
-    container_name: mel-worker
+    container_name: magi-studio-worker
     env_file: *env
     volumes: *vol
     depends_on:
-      - mel-broker
-      - mel-app
-    networks: *net
+      - magi-studio-broker
+      - magi-studio-app

@@ -12,7 +12,6 @@ services:
     container_name: postgresql
     env_file:
       - .env
-    # Optional: Map the container port to a host port to be able to connect with a local db client 
     ports:
       - 5432:5432
     volumes:

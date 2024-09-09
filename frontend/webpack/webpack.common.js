@@ -8,6 +8,7 @@ module.exports = {
   entry: {
     base: Path.resolve(__dirname, '../src/pages/base.js'),
     index: Path.resolve(__dirname, '../src/pages/Index/index.js'),
+    legal: Path.resolve(__dirname, '../src/pages/Legal/index.js'),
   },
   output: {
     path: Path.join(__dirname, '../build'),

@@ -25,14 +25,16 @@ import '~/assets/images/studio-img_5.svg';
 
 
 $("body").css("background", `fixed no-repeat center url(${LANDING_BANNER})`);
-$("body").css("background-size", "auto 100vh");
+$("body").css("background-size", "cover");
 $("#landing").css("background", "rgba(0, 0, 0, 50%");
 
 window.onload = () => {
   const navDomElement = document.querySelector('nav');
+  const navLinks = document.querySelectorAll('.nav-link');
   if (window.pageYOffset == 0) {
     navDomElement.classList.remove('bg-white', 'shadow');
     navDomElement.classList.add('py-3', 'navbar-dark', 'blurred-background');
+    navLinks.forEach(item => { item.classList.add("link-light");});
   } else {
     navDomElement.classList.remove('opacity-0');
   }
@@ -41,10 +43,12 @@ window.onload = () => {
     if (window.pageYOffset == 0) {
       navDomElement.classList.remove('bg-white', 'shadow');
       navDomElement.classList.add('py-3', 'navbar-dark');
+      navLinks.forEach(item => { item.classList.add("link-light");});
       setTimeout(() => { navDomElement.classList.add('blurred-background'); }, 50);
     } else {
       navDomElement.classList.add('bg-white', 'shadow');
       navDomElement.classList.remove('py-3', 'opacity-0', 'navbar-dark', 'blurred-background');
+      navLinks.forEach(item => { item.classList.remove("link-light");});
     }
   });
 
@@ -57,9 +61,6 @@ window.onload = () => {
   setTimeout(() => {
     navDomElement.classList.remove('opacity-0');
   }, 1500);
-
-
-
 
   const studioDomElement = document.querySelector('#studio');
   const studioFadeInDomElement = document.querySelector('#studio .fade-in');
@@ -85,7 +86,7 @@ window.onload = () => {
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.15 }
   );
   projectsObserver.observe(projectsDomElement);
 
@@ -113,7 +114,7 @@ window.onload = () => {
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.25 }
   );
   contactObserver.observe(contactDomElement);
 

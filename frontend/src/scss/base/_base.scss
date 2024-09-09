@@ -72,26 +72,26 @@ nav #title {
   transform: translate(-30px, 20px) scale(1);
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
+// /* width */
+// ::-webkit-scrollbar {
+//   width: 10px;
+// }
 
-/* Track */
-::-webkit-scrollbar-track {
-  padding: 3px;
-  border-radius: 10px;
-  background: transparent;
-}
+// /* Track */
+// ::-webkit-scrollbar-track {
+//   padding: 3px;
+//   border-radius: 10px;
+//   background: transparent;
+// }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: $primary;
-}
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//   border-radius: 10px;
+//   background: $primary;
+// }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgba($primary, 80%);
-  cursor: pointer;
-}
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: rgba($primary, 80%);
+//   cursor: pointer;
+// }
